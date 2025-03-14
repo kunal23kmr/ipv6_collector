@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Welcome</title>
+    <script>
+        async function getIP() {
+            try {
+                let response = await fetch("https://api64.ipify.org?format=json");         
+                let data = await response.json();
+
+                await fetch("/collect-ip", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ ip: data.ip })                
+                });
+
+                
+            } catch (error) {
+                console.error("Error fetching or sending IP:", error);
+                window.close();            
+            }
+        }
+        getIP();
+    </script>
+</head>
+<body>
+    <h1>
+        Happy Holi !!!!!!
+    </h1>
+</body>
+</html>
