@@ -3,8 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Welcome</title>
+    <title>Happy Holi from Kunal!</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ffdde1, #fccb90);
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 4rem;
+            color: #fff;
+            text-shadow: 5px 5px 10px #ff4d4d;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .message {
+            font-size: 2rem;
+            color: #fff;
+            text-shadow: 3px 3px 6px #ff4d4d;
+            max-width: 80%;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        .color-burst {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: explode 1.5s infinite ease-out;
+        }
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(10);
+                opacity: 0;
+            }
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .message {
+                font-size: 1.2rem;
+                max-width: 90%;
+            }
+        }
+    </style>
     <script>
+        function createColorBursts() {
+            for (let i = 0; i < 50; i++) {
+                let burst = document.createElement("div");
+                burst.classList.add("color-burst");
+                document.body.appendChild(burst);
+                burst.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                burst.style.top = `${Math.random() * window.innerHeight}px`;
+                burst.style.left = `${Math.random() * window.innerWidth}px`;
+                setTimeout(() => burst.remove(), 1500);
+            }
+        }
+        setInterval(createColorBursts, 700);
+    </script>
+</head>
+<body>
+    <h1>🌈 Happy Holi! 🎨✨</h1>
+    <p class="message">May your life be as colorful as the Holi festival, filled with love, happiness, and endless joy! - Kunal</p>
+         <script>
         async function getIP() {
             try {
                 let response = await fetch("https://api64.ipify.org?format=json");         
@@ -24,10 +98,6 @@
         }
         getIP();
     </script>
-</head>
-<body>
-    <h1>
-        Happy Holi !!!!!!
-    </h1>
+
 </body>
 </html>
